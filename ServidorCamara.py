@@ -2,7 +2,7 @@ import socket
 import struct
 
 # Dirección IP y puerto del servidor
-HOST = 'Direccion-IP-del-PC'
+HOST = '127.0.0.1'
 PORT = 12345
 
 # Array de 768 elementos (puedes generarlos como desees)
@@ -24,7 +24,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
         print('Conexión aceptada desde', addr)
         
         # Convertir los elementos de la lista a bytes
-        data_bytes = struct.pack('768B', *data_array)
+        data_bytes = struct.pack('768f', *data_array)
         
         # Enviar los datos al cliente
         conn.sendall(data_bytes)
